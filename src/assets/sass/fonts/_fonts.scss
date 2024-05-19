@@ -1,0 +1,25 @@
+@layer base {
+    @font-face {
+        font-family: 'manrope-bold';
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url(../fonts/manrope-bold.ttf);
+    }
+
+    @font-face {
+        font-family: 'manrope-extra-bold';
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url(../fonts/manrope-extra-bold.ttf);
+    }
+
+    @font-face {
+        font-family: 'manrope-light';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(../fonts/manrope-light.ttf);
+    }
+}
