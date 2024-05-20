@@ -1,7 +1,6 @@
-import { useContext, type FC } from 'react'
+import { type FC } from 'react'
 import { Avatar, List } from 'flowbite-react'
 
-import { SupabaseContext } from '../../../Provider/SupabaseContext'
 import manager from '../../../assets/images/manager.webp'
 import lightning from '../../../assets/images/lightning.png'
 import topper from '../../../assets/images/topper.png'
