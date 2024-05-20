@@ -7,19 +7,14 @@ interface ImportMetaEnv {
     readonly VITE_APP_TITLE: string
 
     /**
-     * The Facebook URL.
+     * The supabase Project URL.
      */
-    readonly VITE_FACEBOOK_URL: string
+    readonly VITE_SUPABASE_PROJECT_URL: string
 
     /**
-     * The Instagram URL.
+     * The supabase API Key.
      */
-    readonly VITE_INSTAGRAM_URL: string
-
-    /**
-     * The Twitter URL.
-     */
-    readonly VITE_TWITTER_URL: string
+    readonly VITE_SUPABASE_API_KEY: string
 }
 
 interface ImportMeta {

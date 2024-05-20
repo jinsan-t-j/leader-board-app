@@ -13,16 +13,17 @@
     --medium-font-size: 1.125rem;
     --regular-font-size: 1rem;
 
-    --bold-font-family: 'montserrat-bold', arial, sans-serif;
-    --medium-font-family: 'montserrat-medium', arial, sans-serif;
-    --regular-font-family: 'montserrat-regular', arial, sans-serif;
+    --extra-bold-font-family: 'manrope-extra-bold', arial, sans-serif;
+    --semi-bold-font-family: 'manrope-semi-bold', arial, sans-serif;
+    --bold-font-family: 'manrope-bold', arial, sans-serif;
+    --light-font-family: 'manrope-light', arial, sans-serif;
 
-    --primary-color: #795458;
-    --secondary-color: #795458;
+    --primary-color: #FFCC00;
+    --secondary-color: #F6B511;
 }
 
 @for $i from 1 through 6 {
     h#{7 - $i} {
-        font-family: var(--bold-font-family);
+        font-family: var(--semi-bold-font-family);
     }
 }
