@@ -47,7 +47,7 @@ export const Home: FC = () => {
                             theme={avatarTheme}
                             className='mb-8'
                         />
-                        <div className='mb-4 rounded-2xl bg-black px-4 py-8'>
+                        <div className='mb-4 rounded-2xl bg-black px-4 py-8 cursor-pointer'>
                             <img src={lightning} alt='something' />
                         </div>
                         <h4 className='text-center font-semi-bold text-lg'> Jennifer </h4>
@@ -62,7 +62,7 @@ export const Home: FC = () => {
                             theme={avatarTheme}
                             className='mb-8'
                         />
-                        <div className='mb-4 rounded-2xl bg-black px-4 py-8'>
+                        <div className='mb-4 rounded-2xl bg-black px-4 py-8 cursor-pointer'>
                             <img src={lightning} alt='something' />
                         </div>
                         <h4 className='text-center font-semi-bold text-lg'> Jennifer </h4>
@@ -77,7 +77,7 @@ export const Home: FC = () => {
                             theme={avatarTheme}
                             className='mb-8'
                         />
-                        <div className='mb-4 rounded-2xl bg-black px-4 py-8'>
+                        <div className='mb-4 rounded-2xl bg-black px-4 py-8 cursor-pointer'>
                             <img src={lightning} alt='something' />
                         </div>
                         <h4 className='text-center font-semi-bold text-lg'> Jennifer </h4>
@@ -99,9 +99,9 @@ export const Home: FC = () => {
                     onDragStart={(e) => e.preventDefault()}
                 />
 
-                <List unstyled className='max-w-md divide-y'>
-                    <List.Item className='mb-1 rounded-3xl bg-white p-2'>
-                        <div className='flex items-center space-x-4'>
+                <List unstyled className='min-h-[366px] divide-y'>
+                <List.Item className='mb-2 rounded-3xl bg-white p-2 hover:p-1 cursor-pointer hover:scale-125 duration-200'>
+                        <div className='flex items-center space-x-4 cursor-pointer'>
                             <Avatar
                                 img={manager}
                                 alt='Neil image'
@@ -109,6 +109,7 @@ export const Home: FC = () => {
                                 bordered
                                 size='md'
                                 theme={avatarTheme}
+                                className='cursor pointer'
                             />
                             <div className='min-w-0 flex-1'>
                                 <p className='truncate text-sm font-medium text-gray-900 dark:text-white'>
@@ -124,8 +125,8 @@ export const Home: FC = () => {
                         </div>
                     </List.Item>
 
-                    <List.Item className='mb-2 rounded-3xl bg-white p-2'>
-                        <div className='flex items-center space-x-4'>
+                    <List.Item className='mb-2 rounded-3xl bg-white p-2 hover:p-1 cursor-pointer hover:scale-125 duration-200'>
+                        <div className='flex items-center space-x-4 cursor-pointer'>
                             <Avatar
                                 img={manager}
                                 alt='Neil image'
@@ -133,6 +134,7 @@ export const Home: FC = () => {
                                 bordered
                                 size='md'
                                 theme={avatarTheme}
+                                className='cursor pointer'
                             />
                             <div className='min-w-0 flex-1'>
                                 <p className='truncate text-sm font-medium text-gray-900 dark:text-white'>
@@ -148,8 +150,8 @@ export const Home: FC = () => {
                         </div>
                     </List.Item>
 
-                    <List.Item className='mb-2 rounded-3xl bg-white p-2'>
-                        <div className='flex items-center space-x-4'>
+                    <List.Item className='mb-2 rounded-3xl bg-white p-2 hover:p-1 cursor-pointer hover:scale-125 duration-200'>
+                        <div className='flex items-center space-x-4 cursor-pointer'>
                             <Avatar
                                 img={manager}
                                 alt='Neil image'
@@ -157,6 +159,7 @@ export const Home: FC = () => {
                                 bordered
                                 size='md'
                                 theme={avatarTheme}
+                                className='cursor pointer'
                             />
                             <div className='min-w-0 flex-1'>
                                 <p className='truncate text-sm font-medium text-gray-900 dark:text-white'>
@@ -172,8 +175,8 @@ export const Home: FC = () => {
                         </div>
                     </List.Item>
 
-                    <List.Item className='mb-2 rounded-3xl bg-white p-2'>
-                        <div className='flex items-center space-x-4'>
+                    <List.Item className='mb-2 rounded-3xl bg-white p-2 hover:p-1 cursor-pointer hover:scale-125 duration-200'>
+                        <div className='flex items-center space-x-4 cursor-pointer'>
                             <Avatar
                                 img={manager}
                                 alt='Neil image'
@@ -181,6 +184,7 @@ export const Home: FC = () => {
                                 bordered
                                 size='md'
                                 theme={avatarTheme}
+                                className='cursor pointer'
                             />
                             <div className='min-w-0 flex-1'>
                                 <p className='truncate text-sm font-medium text-gray-900 dark:text-white'>
@@ -196,8 +200,8 @@ export const Home: FC = () => {
                         </div>
                     </List.Item>
 
-                    <List.Item className='mb-2 rounded-3xl bg-white p-2'>
-                        <div className='flex items-center space-x-4'>
+                    <List.Item className='mb-2 rounded-3xl bg-white p-2 hover:p-1 cursor-pointer hover:scale-125 duration-200'>
+                        <div className='flex items-center space-x-4 cursor-pointer'>
                             <Avatar
                                 img={manager}
                                 alt='Neil image'
@@ -205,6 +209,7 @@ export const Home: FC = () => {
                                 bordered
                                 size='md'
                                 theme={avatarTheme}
+                                className='cursor pointer'
                             />
                             <div className='min-w-0 flex-1'>
                                 <p className='truncate text-sm font-medium text-gray-900 dark:text-white'>
@@ -220,8 +225,8 @@ export const Home: FC = () => {
                         </div>
                     </List.Item>
 
-                    <List.Item className='mb-2 rounded-3xl bg-white p-2'>
-                        <div className='flex items-center space-x-4'>
+                    <List.Item className='mb-2 rounded-3xl bg-white p-2 hover:p-1 cursor-pointer hover:scale-125 duration-200'>
+                        <div className='flex items-center space-x-4 cursor-pointer'>
                             <Avatar
                                 img={manager}
                                 alt='Neil image'
@@ -229,6 +234,7 @@ export const Home: FC = () => {
                                 bordered
                                 size='md'
                                 theme={avatarTheme}
+                                className='cursor pointer'
                             />
                             <div className='min-w-0 flex-1'>
                                 <p className='truncate text-sm font-medium text-gray-900 dark:text-white'>
