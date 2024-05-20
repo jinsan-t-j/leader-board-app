@@ -31,8 +31,6 @@ const avatarTheme = {
  * @returns The JSX.
  */
 export const Home: FC = () => {
-    const supabase = useContext(SupabaseContext)
-
     return (
         <div className='flex max-h-screen justify-between'>
             <div className='flex w-3/5 flex-col justify-end'>
