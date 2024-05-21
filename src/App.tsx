@@ -1,8 +1,10 @@
 import type { FC } from 'react'
 
 import { SupabaseProvider } from './Provider/SupabaseProvider'
-import { Home } from './features/home'
 import { BaseLayout } from './layouts'
+import { Landing } from './features/home/components/Landing'
+import { Board } from './features/home/components/Board'
+import { LeaderModal } from './features/home/components/LeaderModal'
 
 /**
  * App Component.
@@ -13,7 +15,9 @@ export const App: FC = () => {
     return (
         <SupabaseProvider>
             <BaseLayout>
-                <Home />
+                <Landing />
+                <Board />
+                <LeaderModal />
             </BaseLayout>
         </SupabaseProvider>
     )
