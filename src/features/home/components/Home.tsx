@@ -1,28 +1,11 @@
-import { type FC } from 'react'
-import { Avatar, List } from 'flowbite-react'
+import { useState, type FC } from 'react'
+import { Modal } from 'flowbite-react'
 
-import manager from '../../../assets/images/manager.webp'
-import lightning from '../../../assets/images/lightning.png'
-import topper from '../../../assets/images/topper.png'
-import factoryBackground from '../../../assets/images/bg-factory.png'
+import donut from '../../../assets/images/donut.png'
+import confetti from '../../../assets/images/confetti.png'
 
-const avatarTheme = {
-    root: {
-        bordered: 'p-1 ring-2',
-        rounded: 'rounded-full',
-        color: {
-            dark: 'ring-gray-800 dark:ring-gray-800',
-            failure: 'ring-red-500 dark:ring-red-700',
-            gray: 'ring-yellow-700 dark:ring-gray-400',
-            info: 'ring-cyan-400 dark:ring-cyan-800',
-            light: 'ring-yellow-700 dark:ring-gray-500',
-            purple: 'ring-purple-500 dark:ring-purple-600',
-            success: 'ring-green-500 dark:ring-green-500',
-            warning: 'ring-yellow-300 dark:ring-yellow-500',
-            pink: 'ring-pink-500 dark:ring-pink-500',
-        },
-    },
-}
+import { Board } from './Board'
+import { Landing } from './Landing'
 
 /**
  * The home component.
@@ -30,231 +13,42 @@ const avatarTheme = {
  * @returns The JSX.
  */
 export const Home: FC = () => {
+    const [openModal, setOpenModal] = useState(true)
+
+    const modalTheme = {
+        content: {
+            inner: 'relative flex max-h-[90dvh] flex-col rounded-[50px] bg-white shadow',
+        },
+    }
+
     return (
-        <div className='flex max-h-screen justify-between'>
-            <div className='flex w-3/5 flex-col justify-end'>
-                <h2 className='mt-28 font-light text-4xl text-black'>Use your time wisely</h2>
-                <h1 className='mb-16 font-light text-7xl text-black'>
-                    You Are A <span className='font-extra-bold text-9xl'> Star </span>
-                </h1>
-                <div className='flex justify-start'>
-                    <div className='mr-10 flex flex-col justify-center'>
-                        <Avatar
-                            img={manager}
-                            rounded
-                            bordered
-                            size='lg'
-                            theme={avatarTheme}
-                            className='mb-8'
-                        />
-                        <div className='mb-4 rounded-2xl bg-black px-4 py-8 cursor-pointer'>
-                            <img src={lightning} alt='something' />
-                        </div>
-                        <h4 className='text-center font-semi-bold text-lg'> Jennifer </h4>
+        <>
+            <Landing />
+            <Board />
+
+            <Modal
+                show={openModal}
+                onClick={() => setOpenModal(false)}
+                theme={modalTheme}
+                className='focus-visible:!outline-none'
+            >
+                <Modal.Body className='relative py-16 focus-visible:!outline-none'>
+                    <div className='absolute top-0 translate-x-full'>
+                        <img src={confetti} alt='The confetti' />
                     </div>
-
-                    <div className='mr-10 flex flex-col justify-center'>
-                        <Avatar
-                            img={manager}
-                            rounded
-                            bordered
-                            size='lg'
-                            theme={avatarTheme}
-                            className='mb-8'
-                        />
-                        <div className='mb-4 rounded-2xl bg-black px-4 py-8 cursor-pointer'>
-                            <img src={lightning} alt='something' />
+                    <div className='flex flex-col justify-center'>
+                        <div className='m-auto w-1/4'>
+                            <img src={donut} alt='The donut' />
                         </div>
-                        <h4 className='text-center font-semi-bold text-lg'> Jennifer </h4>
+                        <h3 className='text-center font-semi-bold text-2xl text-black'>
+                            Simon George
+                        </h3>
+                        <h2 className='text-center font-bold text-4xl text-green-700'>
+                            Congratulations
+                        </h2>
                     </div>
-
-                    <div className='mr-10 flex flex-col justify-center'>
-                        <Avatar
-                            img={manager}
-                            rounded
-                            bordered
-                            size='lg'
-                            theme={avatarTheme}
-                            className='mb-8'
-                        />
-                        <div className='mb-4 rounded-2xl bg-black px-4 py-8 cursor-pointer'>
-                            <img src={lightning} alt='something' />
-                        </div>
-                        <h4 className='text-center font-semi-bold text-lg'> Jennifer </h4>
-                    </div>
-                </div>
-            </div>
-            <div className='mt-8 flex w-96 flex-col rounded-3xl bg-black p-6'>
-                <h3 className='text-center font-extra-bold text-3xl text-yellow-700'>
-                    Leader Board
-                </h3>
-                <h5 className='mb-2 text-center font-light text-lg text-white'>
-                    Total Members - 50
-                </h5>
-                <p className='text-white'> Best Performer </p>
-                <img
-                    src={topper}
-                    alt=' '
-                    draggable={false}
-                    onDragStart={(e) => e.preventDefault()}
-                />
-
-                <List unstyled className='min-h-[366px] divide-y'>
-                <List.Item className='mb-2 rounded-3xl bg-white p-2 hover:p-1 cursor-pointer hover:scale-125 duration-200'>
-                        <div className='flex items-center space-x-4 cursor-pointer'>
-                            <Avatar
-                                img={manager}
-                                alt='Neil image'
-                                rounded
-                                bordered
-                                size='md'
-                                theme={avatarTheme}
-                                className='cursor pointer'
-                            />
-                            <div className='min-w-0 flex-1'>
-                                <p className='truncate text-sm font-medium text-gray-900 dark:text-white'>
-                                    Neil Sims
-                                </p>
-                                <p className='truncate text-sm text-gray-500 dark:text-gray-400'>
-                                    Team K
-                                </p>
-                            </div>
-                            <p className='inline-flex items-center bg-yellow-700 px-2.5 text-xs text-black'>
-                                42
-                            </p>
-                        </div>
-                    </List.Item>
-
-                    <List.Item className='mb-2 rounded-3xl bg-white p-2 hover:p-1 cursor-pointer hover:scale-125 duration-200'>
-                        <div className='flex items-center space-x-4 cursor-pointer'>
-                            <Avatar
-                                img={manager}
-                                alt='Neil image'
-                                rounded
-                                bordered
-                                size='md'
-                                theme={avatarTheme}
-                                className='cursor pointer'
-                            />
-                            <div className='min-w-0 flex-1'>
-                                <p className='truncate text-sm font-medium text-gray-900 dark:text-white'>
-                                    Neil Sims
-                                </p>
-                                <p className='truncate text-sm text-gray-500 dark:text-gray-400'>
-                                    Team K
-                                </p>
-                            </div>
-                            <p className='inline-flex items-center bg-yellow-700 px-2.5 text-xs text-black'>
-                                42
-                            </p>
-                        </div>
-                    </List.Item>
-
-                    <List.Item className='mb-2 rounded-3xl bg-white p-2 hover:p-1 cursor-pointer hover:scale-125 duration-200'>
-                        <div className='flex items-center space-x-4 cursor-pointer'>
-                            <Avatar
-                                img={manager}
-                                alt='Neil image'
-                                rounded
-                                bordered
-                                size='md'
-                                theme={avatarTheme}
-                                className='cursor pointer'
-                            />
-                            <div className='min-w-0 flex-1'>
-                                <p className='truncate text-sm font-medium text-gray-900 dark:text-white'>
-                                    Neil Sims
-                                </p>
-                                <p className='truncate text-sm text-gray-500 dark:text-gray-400'>
-                                    Team K
-                                </p>
-                            </div>
-                            <p className='inline-flex items-center bg-yellow-700 px-2.5 text-xs text-black'>
-                                42
-                            </p>
-                        </div>
-                    </List.Item>
-
-                    <List.Item className='mb-2 rounded-3xl bg-white p-2 hover:p-1 cursor-pointer hover:scale-125 duration-200'>
-                        <div className='flex items-center space-x-4 cursor-pointer'>
-                            <Avatar
-                                img={manager}
-                                alt='Neil image'
-                                rounded
-                                bordered
-                                size='md'
-                                theme={avatarTheme}
-                                className='cursor pointer'
-                            />
-                            <div className='min-w-0 flex-1'>
-                                <p className='truncate text-sm font-medium text-gray-900 dark:text-white'>
-                                    Neil Sims
-                                </p>
-                                <p className='truncate text-sm text-gray-500 dark:text-gray-400'>
-                                    Team K
-                                </p>
-                            </div>
-                            <p className='inline-flex items-center bg-yellow-700 px-2.5 text-xs text-black'>
-                                42
-                            </p>
-                        </div>
-                    </List.Item>
-
-                    <List.Item className='mb-2 rounded-3xl bg-white p-2 hover:p-1 cursor-pointer hover:scale-125 duration-200'>
-                        <div className='flex items-center space-x-4 cursor-pointer'>
-                            <Avatar
-                                img={manager}
-                                alt='Neil image'
-                                rounded
-                                bordered
-                                size='md'
-                                theme={avatarTheme}
-                                className='cursor pointer'
-                            />
-                            <div className='min-w-0 flex-1'>
-                                <p className='truncate text-sm font-medium text-gray-900 dark:text-white'>
-                                    Neil Sims
-                                </p>
-                                <p className='truncate text-sm text-gray-500 dark:text-gray-400'>
-                                    Team K
-                                </p>
-                            </div>
-                            <p className='inline-flex items-center bg-yellow-700 px-2.5 text-xs text-black'>
-                                42
-                            </p>
-                        </div>
-                    </List.Item>
-
-                    <List.Item className='mb-2 rounded-3xl bg-white p-2 hover:p-1 cursor-pointer hover:scale-125 duration-200'>
-                        <div className='flex items-center space-x-4 cursor-pointer'>
-                            <Avatar
-                                img={manager}
-                                alt='Neil image'
-                                rounded
-                                bordered
-                                size='md'
-                                theme={avatarTheme}
-                                className='cursor pointer'
-                            />
-                            <div className='min-w-0 flex-1'>
-                                <p className='truncate text-sm font-medium text-gray-900 dark:text-white'>
-                                    Neil Sims
-                                </p>
-                                <p className='truncate text-sm text-gray-500 dark:text-gray-400'>
-                                    Team K
-                                </p>
-                            </div>
-                            <p className='inline-flex items-center bg-yellow-700 px-2.5 text-xs text-black'>
-                                42
-                            </p>
-                        </div>
-                    </List.Item>
-                </List>
-            </div>
-
-            <div className='absolute bottom-0 left-0 -z-50'>
-                <img src={factoryBackground} alt='' />
-            </div>
-        </div>
+                </Modal.Body>
+            </Modal>
+        </>
     )
 }
