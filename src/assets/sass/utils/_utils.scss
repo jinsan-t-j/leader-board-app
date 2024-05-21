@@ -1,0 +1,7 @@
+@layer utilities {
+    .lightning {
+        @apply md:w-36 md:h-56 sm:w-24 sm:h-36;
+        clip-path: polygon(23% 0, 82% 0, 59% 33%, 99% 33%, 22% 100%, 38% 54%, 0 54%);
+    }
+  }
+  
