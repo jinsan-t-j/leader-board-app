@@ -16,14 +16,16 @@ export const fetchLeaders =
     async (dispatch) => {
         const { data } = await supabase.from('leaders').select('*')
         if (data) {
-            const leaders: ILeader[] = data
-                ?.toSorted((a, b) => b?.target_percentage - a.target_percentage)
-                ?.map((leader: Omit<ILeader, 'target_percentage'>) => {
-                    return {
-                        ...leader,
-                        target_percentage: (leader.achieved_target / leader.expected_target) * 100,
-                    }
-                })
-            dispatch(setLeaders(leaders))
+            const leaders: ILeader[] = data?.map((leader: Omit<ILeader, 'target_percentage'>) => {
+                return {
+                    ...leader,
+                    target_percentage: (leader.achieved_target / leader.expected_target) * 100,
+                }
+            })
+
+            const sortedLeaders: ILeader[] = leaders?.toSorted(
+                (a, b) => b?.target_percentage - a?.target_percentage,
+            )
+            dispatch(setLeaders(sortedLeaders))
         }
     }
