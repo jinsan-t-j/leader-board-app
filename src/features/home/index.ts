@@ -1,2 +1,2 @@
 export * from './components'
-export * from './leader-slice'
+export * from './leader.slice'

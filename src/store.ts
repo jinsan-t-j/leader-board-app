@@ -4,7 +4,7 @@ import type { TypedUseSelectorHook } from 'react-redux'
 import { useDispatch, useSelector } from 'react-redux'
 import { createLogger } from 'redux-logger'
 
-import leaderSlice from './features/home/leader-slice'
+import leaderSlice from './features/home/leader.slice'
 
 const reduxLogger = createLogger({
     collapsed: true,

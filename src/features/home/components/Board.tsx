@@ -1,10 +1,11 @@
 import { Avatar, List } from 'flowbite-react'
-import { type FC } from 'react'
+import { useEffect, useState, type FC } from 'react'
 
-import manager from '../../../assets/images/manager.webp'
 import leaderBoard from '../../../assets/images/leader-board.svg'
 import { AvatarThemeConstant } from '../home.constants'
 import { Battery } from '../../../shared/components/ui/Battery'
+import { useAppSelector } from '../../../store'
+import type { ILeader } from '../entity/Leader'
 
 /**
  * The board component.
@@ -12,6 +13,34 @@ import { Battery } from '../../../shared/components/ui/Battery'
  * @returns The JSX.
  */
 export const Board: FC = () => {
+    const [leaders, setLeaders] = useState<ILeader[]>()
+    const [topThreeLeaders, setTopThreeLeaders] = useState<ILeader[]>([])
+
+    const data = useAppSelector((store) => store.leaders)
+
+    const initialData = () => {
+        if (data) {
+            setLeaders(data)
+
+            const topLeaders = data?.slice(0, 3)
+
+            let draft = []
+            if (topLeaders[1]) {
+                draft = [topLeaders[1], topLeaders[0]]
+                if (topLeaders[2]) {
+                    draft.push(topLeaders[2])
+                }
+            } else {
+                draft = [topLeaders[0]]
+            }
+            setTopThreeLeaders(draft)
+        }
+    }
+
+    useEffect(() => {
+        initialData()
+    }, [data])
+
     return (
         <div className='mt-8 flex w-full md:w-2/5'>
             <div className='w-full shrink-0 grow-0 flex-col rounded-3xl bg-black p-3 md:w-3/4'>
@@ -19,12 +48,12 @@ export const Board: FC = () => {
                     Leader Board
                 </h3>
                 <h5 className='mb-2 text-center font-light text-base text-white lg:text-lg'>
-                    Total Members - <span className='font-bold'> 50 </span>
+                    Total Members - <span className='font-bold'> {leaders?.length} </span>
                 </h5>
                 <p className='font-bold text-base text-white'> Best Performers </p>
 
                 <div className='m-auto -ml-8 flex items-end justify-center'>
-                    {[0, 1, 2].map((x, index) => {
+                    {topThreeLeaders?.map((topLeader, index) => {
                         let size = 'md'
                         let margin = '-mb-28'
 
@@ -38,22 +67,22 @@ export const Board: FC = () => {
                         return (
                             <div
                                 className={`flex flex-col items-center ${index === 1 ? 'self-start' : ''} ${margin}`}
-                                key={x}
+                                key={topLeader.uuid}
                             >
-                                <Battery value={44} className='mb-2.5' />
+                                <Battery value={topLeader.achieved_target} className='mb-2.5' />
 
                                 <Avatar
-                                    img={manager}
+                                    img={topLeader.avatar}
                                     alt='Neil image'
                                     rounded
                                     bordered
                                     size={size}
                                     theme={AvatarThemeConstant}
                                     color='white'
-                                    className='cursor-pointer'
+                                    className='mb-2 cursor-pointer'
                                 />
 
-                                <h3 className='font-bold text-base text-white'>Lora Paul</h3>
+                                <h3 className='font-bold text-base text-white'>{topLeader.name}</h3>
                             </div>
                         )
                     })}
@@ -69,15 +98,15 @@ export const Board: FC = () => {
                 </div>
 
                 <List unstyled className='max-h-80 min-h-[366px] divide-y overflow-y-scroll'>
-                    {[0, 1, 2, 3, 4, 5].map((x) => (
+                    {leaders?.map((leader) => (
                         <List.Item
                             className='!m-0 !mx-4 !mb-1 cursor-pointer rounded-xl bg-gray-300 px-6 py-3 duration-200 hover:!mb-0 hover:scale-105 hover:bg-white'
-                            key={x}
+                            key={leader.uuid}
                         >
                             <div className='flex cursor-pointer items-center space-x-4'>
                                 <Avatar
-                                    img={manager}
-                                    alt='Neil image'
+                                    img={leader.avatar}
+                                    alt='The leader'
                                     rounded
                                     bordered
                                     size='md'
@@ -87,13 +116,13 @@ export const Board: FC = () => {
                                 />
                                 <div className='min-w-0 flex-1'>
                                     <p className='truncate text-sm font-medium text-gray-900 dark:text-white'>
-                                        Neil Sims
+                                        {leader.name}
                                     </p>
                                     <p className='truncate text-sm text-gray-500 dark:text-gray-400'>
-                                        Team K
+                                        {leader.team_name}
                                     </p>
                                 </div>
-                                <Battery value={44} />
+                                <Battery value={leader.achieved_target} />
                             </div>
                         </List.Item>
                     ))}
