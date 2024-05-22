@@ -1,1 +1,3 @@
-export * from './Home'
+export * from './Board'
+export * from './Landing'
+export * from './LeaderModal'
