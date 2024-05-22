@@ -42,8 +42,8 @@ export const Board: FC = () => {
     }, [data])
 
     return (
-        <div className='mt-8 flex w-full md:w-2/5'>
-            <div className='w-full shrink-0 grow-0 flex-col rounded-3xl bg-black p-3 md:w-3/4'>
+        <div className='mb-2 mt-8 flex max-lg:m-auto max-lg:mx-4 lg:w-2/5 '>
+            <div className='w-full shrink-0 grow-0 flex-col rounded-3xl bg-black p-3 md:w-3/4 max-lg:mx-auto'>
                 <h3 className='text-center font-extra-bold text-2xl text-yellow-700 lg:text-3xl'>
                     Leader Board
                 </h3>

@@ -29,15 +29,15 @@ export const Landing: FC = () => {
 
     return (
         <div className='relative flex flex-col justify-center md:w-3/5'>
-            <h2 className='-mb-1 font-light text-black sm:-mb-2 sm:text-2xl md:-mb-8 md:text-3xl xl:text-4xl'>
+            <h2 className='-mb-1 font-light text-2xl text-black max-lg:mt-8 sm:-mb-2 md:-mb-8 md:text-3xl xl:text-4xl'>
                 Use your time wisely
             </h2>
-            <h1 className='mb-16 font-light tracking-wide text-black sm:text-4xl md:text-6xl xl:text-7xl'>
+            <h1 className='mb-16 font-light text-4xl tracking-wide text-black md:text-6xl xl:text-7xl'>
                 You Are A{' '}
-                <span className='font-semi-bold sm:text-6xl md:text-8xl xl:text-9xl'> Star </span>
+                <span className='font-semi-bold text-6xl md:text-8xl xl:text-9xl'> Star </span>
             </h1>
             <div className='flex justify-start max-md:flex-col'>
-                <div className='flex justify-start'>
+                <div className='flex justify-start max-sm:flex-col'>
                     {topThreeLeaders?.map((leader, index) => {
                         const targetPercentage = leader.target_percentage
                         let percentageGradient: string = `${targetPercentage} - CHECK DATABASE`
@@ -51,7 +51,7 @@ export const Landing: FC = () => {
 
                         return (
                             <div
-                                className={`mr-2 flex flex-col items-center justify-center md:mr-5 ${index !== 2 ? 'lg:mr-10' : ''}`}
+                                className={`mr-2 flex flex-col items-center justify-center max-lg:mb-16 md:mr-5 ${index !== 2 ? 'lg:mr-10' : ''}`}
                                 key={leader.uuid}
                             >
                                 <Avatar
