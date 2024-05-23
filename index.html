@@ -1,42 +1,44 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/x-icon" href="/src/assets/images/favicon.ico" />
-    <link
-      rel="shortcut icon"
-      href="/src/assets/images/favicon.ico"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/src/assets/images/favicon.ico"
-    />
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
-    />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/x-icon" href="/src/assets/images/favicon.ico" />
+  <link rel="shortcut icon" href="/src/assets/images/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/src/assets/images/favicon.ico" />
 
-    <meta name="description" content="">
-    <meta name="author" content="Jinsan T J">
-    <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <meta name="google" content="notranslate" />
+  <meta name="description" content="">
+  <meta name="author" content="Jinsan T J">
+  <meta name="robots" content="noindex, nofollow">
 
-    <!-- Open Graph Meta -->
-    <meta property="og:title" content="">
-    <meta property="og:site_name" content="">
-    <meta property="og:description" content="">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="">
-    <meta property="og:image" content="/src/assets/images/favicon.ico">
+  <meta name="google" content="notranslate" />
 
-    <title>The Leader Board App</title>
-  </head>
-  <body class="font-regular">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+  <!-- Open Graph Meta -->
+  <meta property="og:title" content="">
+  <meta property="og:site_name" content="">
+  <meta property="og:description" content="">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="/src/assets/images/favicon.ico">
+
+  <title>%VITE_SITE_TITLE%</title>
+</head>
+
+<body class="font-regular">
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js', {scope: '/'})
+      .then(() => console.log('SW registered'));
+    };
+
+    navigator.serviceWorker.ready.then(() => console.log('SW ready'));
+  </script>
+</body>
+
 </html>
