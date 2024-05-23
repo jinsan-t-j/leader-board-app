@@ -43,9 +43,9 @@ export const App: FC = () => {
     return (
         <BaseLayout>
             <Loader isLoading={isLoading} />
-            <LeaderModal isEnabled={!isLoading} />
             {!isLoading && (
                 <>
+                    <LeaderModal />
                     <Landing />
                     <Board />
                 </>

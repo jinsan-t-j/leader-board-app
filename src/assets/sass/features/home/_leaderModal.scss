@@ -1,0 +1,23 @@
+.ReactModal__Content {
+    bottom: 0;
+    left: 50%;
+    transform: 'translate(-50%, -50%)';
+    transition: bottom 700ms ease-in-out;
+    &--after-open{
+        bottom: 50%;
+    }
+    &--before-close{
+        bottom: -25%;
+    }
+}
+
+.ReactModal__Overlay {
+    opacity: 0;
+    transition: opacity 500ms ease-in-out;
+    &--after-open{
+        opacity: 1;
+    }
+    &--before-close{
+        opacity: 0;
+    }
+}
