@@ -21,7 +21,7 @@ export const LightningIcon: FC = () => {
                 />
                 <mask
                     id='mask0_230_1225'
-                    // style='mask-type:alpha'
+                    style={{ maskType: 'alpha' }}
                     maskUnits='userSpaceOnUse'
                     x='0'
                     y='1'
