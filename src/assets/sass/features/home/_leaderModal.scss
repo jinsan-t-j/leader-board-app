@@ -9,6 +9,11 @@
     &--before-close{
         bottom: -25%;
     }
+    .avatar-image {
+        border: 8px solid #FFCC00;
+        padding: 2px;
+        background: #000000
+    }
 }
 
 .ReactModal__Overlay {

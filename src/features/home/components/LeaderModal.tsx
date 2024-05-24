@@ -2,12 +2,11 @@ import type { FC } from 'react'
 import { useEffect, useState } from 'react'
 import type { Styles } from 'react-modal'
 import Modal from 'react-modal'
+import { Avatar } from 'flowbite-react'
 
-import donut from '../../../assets/images/donut.png'
 import confetti from '../../../assets/images/confetti.png'
 import type { ILeader } from '../entity/Leader'
 import { useAppSelector } from '../../../store'
-
 import '.././../../assets/sass/features/home/_leaderModal.scss'
 
 Modal.setAppElement('#root')
@@ -23,6 +22,18 @@ export const LeaderModal: FC = () => {
 
     const leaders = useAppSelector((store) => store.leaders)
 
+    const avatarTheme = {
+        root: {
+            bordered: 'ring-2 p-1',
+            color: {
+                yellow: 'ring-yellow-700',
+            },
+            img: {
+                base: 'avatar-image rounded ring-4 ring-black',
+            },
+        },
+    }
+
     const customStyles: Styles = {
         overlay: {
             position: 'fixed',
@@ -37,7 +48,7 @@ export const LeaderModal: FC = () => {
             inset: '',
             transform: 'translate(-50%, 50%)',
             width: '30%',
-            height: '30%',
+            height: 'auto',
             borderRadius: '53px',
             border: '1px solid  #ccc',
             background: '#fff',
@@ -66,7 +77,14 @@ export const LeaderModal: FC = () => {
             </div>
             <div className='flex flex-col justify-center'>
                 <div className='m-auto w-1/4'>
-                    <img src={donut} alt='The donut' />
+                    <Avatar
+                        img={topLeader?.avatar}
+                        size='lg'
+                        color='black'
+                        bordered
+                        rounded
+                        theme={avatarTheme}
+                    />
                 </div>
                 <h3 className='text-center font-semi-bold text-2xl text-black'>
                     {topLeader?.name}
