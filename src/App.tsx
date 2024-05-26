@@ -30,9 +30,7 @@ export const App: FC = () => {
             setIsLoading(true)
             isFetching.current = true
             await dispatch(fetchLeaders(supabase))
-            setTimeout(() => {
-                setIsLoading(false)
-            }, 500)
+            setIsLoading(false)
         }
     }
 

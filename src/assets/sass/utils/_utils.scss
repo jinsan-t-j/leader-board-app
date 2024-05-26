@@ -16,6 +16,26 @@
   transition: height 0.5s ease-in-out;
 }
 
+ /* width */
+ ::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: theme('colors.gray.100');
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: theme('colors.gray.400');
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+} 
+
 @keyframes moveGradient {
   0% {
     background-position: 0% 100%;
