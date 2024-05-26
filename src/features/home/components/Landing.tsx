@@ -71,7 +71,7 @@ export const Landing: FC = () => {
 
                                     return (
                                         <div
-                                            className={`mr-2 flex flex-col items-center justify-center max-lg:mb-16 md:mr-5 ${index !== 2 ? 'lg:mr-10' : ''}`}
+                                            className={`mb-6 mr-2 flex flex-col items-center justify-center max-lg:mb-16 md:mr-5 ${index !== 2 ? 'lg:mr-10' : ''}`}
                                             key={leader.uuid}
                                         >
                                             <Avatar
