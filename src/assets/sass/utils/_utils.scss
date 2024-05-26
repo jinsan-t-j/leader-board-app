@@ -1,5 +1,26 @@
-    .lightning {
-        @apply md:w-36 md:h-56 max-md:w-24 max-md:h-36;
-        clip-path: polygon(23% 0, 82% 0, 59% 33%, 99% 33%, 22% 100%, 38% 54%, 0 54%);
-    }
-  
+.lightning-container {
+  @apply md:w-36 md:h-56 max-md:w-24 max-md:h-36;
+  clip-path: polygon(23% 0, 82% 0, 59% 33%, 99% 33%, 22% 100%, 38% 54%, 0 54%);
+  background: #fcd601; /* Base color for the lightning shape */
+  position: relative;
+  overflow: hidden;
+}
+
+.lightning {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to top, rgb(0, 147, 233), transparent);
+  background-size: 50% 200%;
+  background-position: 0% 100%;
+  animation: moveGradient 1s linear infinite alternate;
+  transition: height 0.5s ease-in-out;
+}
+
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
